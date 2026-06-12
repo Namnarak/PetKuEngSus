@@ -1,0 +1,48 @@
+package com.petkuengsus.petkuengsus.pets
+
+import com.petkuengsus.petkuengsus.internal.StringUtils
+import com.petkuengsus.petkuengsus.plugin
+import org.bukkit.event.Event
+import org.bukkit.event.EventHandler
+import org.bukkit.event.Listener
+import org.bukkit.event.block.Action
+import org.bukkit.event.player.PlayerInteractEvent
+import org.bukkit.inventory.EquipmentSlot
+
+object SpawnEggHandler : Listener {
+    @EventHandler(
+        ignoreCancelled = true
+    )
+    fun handle(event: PlayerInteractEvent) {
+        if (event.action != Action.RIGHT_CLICK_BLOCK) {
+            return
+        }
+
+        val player = event.player
+
+        val item = event.item ?: return
+        val pet = item.petEgg ?: return
+
+        event.isCancelled = true
+        event.setUseItemInHand(Event.Result.DENY)
+
+        if (player.hasPet(pet)) {
+            player.sendMessage(plugin.langYml.getMessage("cannot-spawn-pet"))
+            return
+        }
+
+        if (event.hand == EquipmentSlot.HAND) {
+            val hand = event.player.inventory.itemInMainHand
+            hand.amount -= 1
+        } else {
+            val hand = event.player.inventory.itemInOffHand
+            hand.amount -= 1
+        }
+
+        player.setPetLevel(pet, 1)
+        player.sendMessage(
+            plugin.langYml.getMessage("pet-spawned", StringUtils.FormatOption.WITHOUT_PLACEHOLDERS)
+                .replace("%pet%", pet.name)
+        )
+    }
+}

@@ -1,0 +1,105 @@
+# Skill Tree System Configuration
+# Each tree has nodes arranged on a grid (x, y position 0-7, 0-5).
+# Nodes require talent points and may have prerequisites.
+
+warrior:
+  name: "&cWarrior Tree"
+  description:
+    - "&7Offensive pet abilities."
+  icon: "DIAMOND_SWORD"
+  nodes:
+    sharp_claws:
+      name: "&cSharp Claws"
+      description:
+        - "&7Increase pet damage."
+      icon: "IRON_SWORD"
+      position:
+        x: 0
+        y: 0
+      max-level: 5
+      cost: 1
+      requirements:
+        level: 5
+        nodes: []
+        prestige: 0
+      effects:
+        pet_damage: 1.0
+
+    berserker:
+      name: "&4Berserker"
+      description:
+        - "&7Rage mode: increased damage."
+      icon: "BLAZE_POWDER"
+      position:
+        x: 1
+        y: 0
+      max-level: 3
+      cost: 2
+      requirements:
+        level: 15
+        nodes:
+          - sharp_claws
+        prestige: 0
+      effects:
+        pet_damage: 2.0
+        crit_chance: 5.0
+
+    life_steal:
+      name: "&dLife Steal"
+      description:
+        - "&7Heal on pet attacks."
+      icon: "REDSTONE"
+      position:
+        x: 0
+        y: 1
+      max-level: 5
+      cost: 2
+      requirements:
+        level: 20
+        nodes:
+          - sharp_claws
+        prestige: 1
+      effects:
+        life_steal: 1.0
+
+defender:
+  name: "&9Defender Tree"
+  description:
+    - "&7Defensive pet abilities."
+  icon: "SHIELD"
+  nodes:
+    thick_skin:
+      name: "&9Thick Skin"
+      description:
+        - "&7Reduce damage taken."
+      icon: "LEATHER_CHESTPLATE"
+      position:
+        x: 0
+        y: 0
+      max-level: 5
+      cost: 1
+      requirements:
+        level: 5
+        nodes: []
+        prestige: 0
+      effects:
+        pet_defense: 1.0
+
+    fortitude:
+      name: "&3Fortitude"
+      description:
+        - "&7Further damage reduction."
+      icon: "IRON_CHESTPLATE"
+      position:
+        x: 1
+        y: 0
+      max-level: 3
+      cost: 2
+      requirements:
+        level: 15
+        nodes:
+          - thick_skin
+        prestige: 0
+      effects:
+        pet_defense: 2.0
+        damage_reduction: 1.0

@@ -1,0 +1,43 @@
+# Talent System Configuration
+# Players earn talent points on pet level-up and spend them on permanent stat boosts.
+# Effects are applied globally and stack with skill tree and synergy bonuses.
+
+damage:
+  name: "&cDamage Boost"
+  description:
+    - "&7Increase pet damage output."
+  icon: "DIAMOND_SWORD"
+  max-level: 10
+  cost-per-level: 1
+  effects:
+    pet_damage: 0.5
+
+defense:
+  name: "&9Defense Boost"
+  description:
+    - "&7Reduce damage taken."
+  icon: "SHIELD"
+  max-level: 10
+  cost-per-level: 1
+  effects:
+    pet_defense: 0.5
+
+speed:
+  name: "&bSpeed Boost"
+  description:
+    - "&7Increase movement speed."
+  icon: "FEATHER"
+  max-level: 5
+  cost-per-level: 2
+  effects:
+    movement_speed: 0.05
+
+luck:
+  name: "&aLuck Boost"
+  description:
+    - "&7Better loot from pet kills."
+  icon: "RABBIT_FOOT"
+  max-level: 5
+  cost-per-level: 2
+  effects:
+    pet_luck: 1.0

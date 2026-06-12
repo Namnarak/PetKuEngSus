@@ -1,0 +1,32 @@
+# Pet Synergy Configuration
+# When specific pets are active together, their owners gain bonus effects.
+# Use pet IDs from your pets/ folder.
+
+fire_ice:
+  name: "&6Fire & Ice"
+  description:
+    - "&7Fire and ice pets create steam."
+    - "&7Bonus damage and defense."
+  pets:
+    - fire_dragon
+    - ice_phoenix
+  required-levels:
+    fire_dragon: 10
+    ice_phoenix: 10
+  effects:
+    pet_damage: 5.0
+    pet_defense: 3.0
+
+dark_light:
+  name: "&5Dark & Light"
+  description:
+    - "&7Balance of darkness and light."
+  pets:
+    - shadow_wolf
+    - light_fairy
+  required-levels:
+    shadow_wolf: 15
+    light_fairy: 15
+  effects:
+    pet_damage: 8.0
+    movement_speed: 0.2

@@ -1,0 +1,161 @@
+name: ${pluginName}
+version: ${version}
+main: com.petkuengsus.petkuengsus.PetKuEngSusPlugin
+api-version: 1.21.8
+description: A modular Pet & RPG Framework for Minecraft featuring talents, skill trees, prestige, synergies, and advanced pet simulation.
+authors: [ "Cytech Team Development" ]
+softdepend:
+  - PlaceholderAPI
+  - Vault
+  - LuckPerms
+  - AxTrade
+commands:
+  petkuengsus:
+    description: Base Command
+    permission: petkuengsus.command.petkuengsus
+  pets:
+    aliases:
+      - pet
+    description: Open the pets menu
+    permission: petkuengsus.command.pets
+    default: true
+  breakthrough:
+    description: Open breakthrough menu
+    permission: petkuengsus.command.breakthrough
+    default: true
+  talents:
+    description: Open talent tree menu
+    permission: petkuengsus.command.talents
+    aliases:
+      - talent
+    default: true
+  skilltree:
+    description: Open skill tree menu
+    permission: petkuengsus.command.skilltree
+    default: true
+  prestige:
+    description: Open prestige menu
+    permission: petkuengsus.command.prestige
+    default: true
+  mount:
+    description: Mount or dismount your active pet
+    permission: petkuengsus.command.mount
+    default: true
+
+permissions:
+  petkuengsus.*:
+    description: All PetKuEngSus permissions
+    default: op
+    children:
+      petkuengsus.command.*: true
+  petkuengsus.command.*:
+    description: All commands
+    default: op
+    children:
+      petkuengsus.command.petkuengsus: true
+      petkuengsus.command.reload: true
+      petkuengsus.command.pets: true
+      petkuengsus.command.give: true
+      petkuengsus.command.take: true
+      petkuengsus.command.giveegg: true
+      petkuengsus.command.givexp: true
+      petkuengsus.command.givecurrentxp: true
+      petkuengsus.command.reset: true
+      petkuengsus.command.activate: true
+      petkuengsus.command.deactivate: true
+      petkuengsus.command.activateother: true
+      petkuengsus.command.deactivateother: true
+
+  petkuengsus.command.reload:
+    description: Allows reloading the config
+    default: op
+  petkuengsus.command.petkuengsus:
+    description: Allows the use of /petkuengsus.
+    default: true
+  petkuengsus.command.pets:
+    description: Allows the use of /pets.
+    default: true
+  petkuengsus.command.give:
+    description: Allows the use of /petkuengsus give.
+    default: op
+  petkuengsus.command.take:
+    description: Allows the use of /petkuengsus take.
+    default: op
+  petkuengsus.command.giveegg:
+    description: Allows the use of /petkuengsus giveegg.
+    default: op
+  petkuengsus.command.givexp:
+    description: Allows the use of /petkuengsus givexp.
+    default: op
+  petkuengsus.command.givecurrentxp:
+    description: Allows the use of /petkuengsus givecurrentxp.
+    default: op
+  petkuengsus.command.reset:
+    description: Allows the use of /petkuengsus reset.
+    default: op
+  petkuengsus.command.activate:
+    description: Allows the use of /pets activate.
+    default: true
+  petkuengsus.command.deactivate:
+    description: Allows the use of /pets deactivate.
+    default: true
+  petkuengsus.command.mount:
+    description: Allows the use of /pets mount.
+    default: true
+  petkuengsus.command.activateother:
+    description: Allows the use of /petkuengsus activateother.
+    default: true
+  petkuengsus.command.deactivateother:
+    description: Allows the use of /petkuengsus deactivateother.
+    default: true
+
+  petkuengsus.xpmultiplier.50percent:
+    description: Gives the player 50% more pet experience
+    default: false
+  petkuengsus.xpmultiplier.double:
+    description: Gives the player 2x pet experience
+    default: false
+  petkuengsus.xpmultiplier.triple:
+    description: Gives the player 3x pet experience
+    default: false
+  petkuengsus.xpmultiplier.quadruple:
+    description: Gives the player 4x pet experience
+    default: false
+
+  petkuengsus.slots.1:
+    description: Allows 1 active pet at a time
+    default: true
+  petkuengsus.slots.2:
+    description: Allows 2 active pets at a time
+    default: false
+  petkuengsus.slots.3:
+    description: Allows 3 active pets at a time
+    default: false
+  petkuengsus.slots.5:
+    description: Allows 5 active pets at a time
+    default: false
+
+  petkuengsus.breakthrough.max:
+    description: Allows maximum breakthrough level
+    default: false
+
+  petkuengsus.prestige.max:
+    description: Allows maximum prestige level
+    default: false
+
+  petkuengsus.talent.reset:
+    description: Allows resetting talent points
+    default: op
+
+  petkuengsus.command.breakthrough:
+    description: Allows /breakthrough
+    default: true
+  petkuengsus.command.talents:
+    description: Allows /talents
+    default: true
+  petkuengsus.command.skilltree:
+    description: Allows /skilltree
+    default: true
+  petkuengsus.command.prestige:
+    description: Allows /prestige
+    default: true

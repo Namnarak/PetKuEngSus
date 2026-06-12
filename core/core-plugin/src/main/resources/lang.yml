@@ -1,0 +1,63 @@
+messages:
+  prefix: "&#d977c2&lPetKuEngSus&r &8» &r"
+  no-permission: "&cYou don't have permission to do this!"
+  not-player: "&cThis command must be run by a player"
+  invalid-command: "&cUnknown subcommand!"
+  reloaded: "Reloaded in %time%ms! Loaded %count% pets."
+
+  needs-player: "&cYou must specify a player!"
+  gave-xp: "&fYou have given &a%xp% &fXP to %player%&f's %pet%&f!"
+  gave-current-xp: "&fYou have given &a%xp% &fXP to %player%&f's currently active pet!"
+  no-pet: "&cThe player doesn't have a pet active!"
+  reset-xp: "&fYou have reset %player%&f's %pet%&f XP!"
+  needs-pet: "&cYou must specify a pet!"
+  need-amount: "&cYou must specify a amount!"
+  invalid-player: "&cInvalid player!"
+  invalid-pet: "&cInvalid pet!"
+  already-has-pet: "&cPlayer already has this pet!"
+  doesnt-have-pet: "&cPlayer doesn't have this pet!"
+  gave-pet: "&fSuccessfully gave %player%&f the %pet%&f pet!"
+  took-pet: "&fSuccessfully took %player%&f's %pet%&f pet!"
+  gave-pet-egg: "&fSuccessfully gave %player%&f the %pet%&f pet egg!"
+  cannot-spawn-pet: "&cYou already have this pet unlocked!"
+  pet-spawned: "&fYou've spawned your %pet%&f pet! Visit &a/pets&f to activate it!"
+  invalid-amount: "&cInvalid amount!"
+  pet-already-active: "&cYou already have this pet active!"
+  no-pet-active: "&cYou don't have a pet active!"
+  activated-pet: "&fYou have activated the %pet%&f pet!"
+  deactivated-pet: "&fYou have deactivated the %pet%&f pet!"
+  cannot-activate-pet: "&cYou don't meet the conditions to activate the %pet%&f pet!"
+  pet-auto-deactivated: "&cYour %pet%&f pet has been deactivated as you no longer meet the activation conditions!"
+  cancelled-adoption: "&cThat player is not allowed to adopt that pet!"
+  cancelled-swap: "&cYou are not allowed to swap to that pet!"
+  cancelled-swap-other: "&cThat player is not allowed to swap to that pet!"
+
+  menu:
+    title: "Pets"
+    level-title: "%pet%"
+
+  breakthrough.gui.title: "&8Breakthroughs"
+  prestige.gui.title: "&5Prestige"
+  talents.gui.title: "&aTalents"
+  skilltree.gui.title: "&8Skill Tree - %tree%"
+  level-gui.title: "&8Level %pet%"
+
+  infinity: "∞"
+
+  mount:
+    no-active-pet: "&cYou must have an active pet to mount!"
+    already-mounted: "&cYou are already mounted!"
+    no-entity: "&cYour pet entity could not be found!"
+    pet-occupied: "&cYour pet already has a passenger!"
+    mounted: "&fYou mounted your %pet%&f! Sneak to dismount."
+    dismounted: "&fYou dismounted your %pet%&f!"
+
+  transform:
+    activated: "&aPet transform mode activated!"
+    deactivated: "&cPet transform mode deactivated!"
+    model-changed: "&fModel type changed to &e%type%&f!"
+    no-active-pet: "&cYou must have an active pet to transform!"
+    types:
+      skull: "Skull (Armor Stand)"
+      item_display: "3D Item Model"
+      block_display: "Block Model"

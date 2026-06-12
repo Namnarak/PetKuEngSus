@@ -1,0 +1,87 @@
+# Combat Effects Configuration
+# Effects apply when a player damages an entity with an active pet.
+# Chance and amplifier scale with pet level.
+
+bleed:
+  name: "&cBleeding"
+  description:
+    - "&7Causes your target to bleed."
+  type: BLEED
+  base-chance: 0.15
+  base-duration: 60
+  base-amplifier: 1.0
+  scaling-per-level: 0.02
+  duration-per-level: 5
+  particles: true
+
+poison:
+  name: "&aPoison"
+  description:
+    - "&7Poisons your target."
+  type: POISON
+  base-chance: 0.1
+  base-duration: 100
+  base-amplifier: 1.0
+  scaling-per-level: 0.01
+  duration-per-level: 10
+  particles: true
+
+burn:
+  name: "&6Burn"
+  description:
+    - "&7Sets your target on fire."
+  type: BURN
+  base-chance: 0.1
+  base-duration: 40
+  base-amplifier: 1.0
+  scaling-per-level: 0.015
+  duration-per-level: 5
+  particles: true
+
+freeze:
+  name: "&bFreeze"
+  description:
+    - "&7Slows your target."
+  type: FREEZE
+  base-chance: 0.12
+  base-duration: 60
+  base-amplifier: 1.0
+  scaling-per-level: 0.01
+  duration-per-level: 5
+  particles: true
+
+critical:
+  name: "&eCritical Strike"
+  description:
+    - "&7Bonus damage on hit."
+  type: CRITICAL
+  base-chance: 0.05
+  base-duration: 0
+  base-amplifier: 2.0
+  scaling-per-level: 0.02
+  duration-per-level: 0
+  particles: true
+
+armor_break:
+  name: "&7Armor Break"
+  description:
+    - "&7Weakens your target."
+  type: ARMOR_BREAK
+  base-chance: 0.08
+  base-duration: 100
+  base-amplifier: 1.0
+  scaling-per-level: 0.01
+  duration-per-level: 10
+  particles: true
+
+life_steal:
+  name: "&dLife Steal"
+  description:
+    - "&7Heal when dealing damage."
+  type: LIFE_STEAL
+  base-chance: 0.2
+  base-duration: 0
+  base-amplifier: 1.0
+  scaling-per-level: 0.03
+  duration-per-level: 0
+  particles: false

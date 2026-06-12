@@ -1,0 +1,67 @@
+# Prestige System Configuration
+# Players reset their pet levels to gain prestige tiers.
+# Each tier provides an XP multiplier and rewards.
+
+1:
+  name: "&5Prestige I"
+  description:
+    - "&7Reset your progress for"
+    - "&7greater power!"
+  requirements:
+    level: 50
+    pets: 3
+    prestige: 0
+  cost: 10000.0
+  xp-multiplier: 1.2
+  extra-slots: 0
+  rewards:
+    reward1:
+      type: "vault"
+      value: ""
+      amount: 5000.0
+    reward2:
+      type: "permission"
+      value: "petkuengsus.slots.2"
+      amount: 0.0
+
+2:
+  name: "&5Prestige II"
+  description:
+    - "&7Even greater power awaits..."
+  requirements:
+    level: 75
+    pets: 5
+    prestige: 1
+  cost: 50000.0
+  xp-multiplier: 1.5
+  extra-slots: 0
+  rewards:
+    reward1:
+      type: "vault"
+      value: ""
+      amount: 20000.0
+    reward2:
+      type: "command"
+      value: "give %player% netherite_ingot 5"
+      amount: 0.0
+
+3:
+  name: "&6Prestige III"
+  description:
+    - "&7The ultimate pet master."
+  requirements:
+    level: 100
+    pets: 7
+    prestige: 2
+  cost: 200000.0
+  xp-multiplier: 2.0
+  extra-slots: 3
+  rewards:
+    reward1:
+      type: "vault"
+      value: ""
+      amount: 100000.0
+    reward2:
+      type: "permission"
+      value: "petkuengsus.slots.5"
+      amount: 0.0
