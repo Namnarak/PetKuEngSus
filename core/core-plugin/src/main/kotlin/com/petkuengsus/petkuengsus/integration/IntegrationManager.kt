@@ -22,9 +22,9 @@ class IntegrationManager(private val plugin: PetKuEngSusPlugin) {
                             val instance = constructor.newInstance(plugin)
                             instance::class.java.getMethod("register").invoke(instance)
                         }
-                        "Vault" -> clazz.getMethod("init").invoke(null)
-                        "LuckPerms" -> clazz.getMethod("init").invoke(null)
-                        "AxTrade" -> clazz.getMethod("init").invoke(null)
+                        "Vault" -> clazz.getMethod("init").invoke(clazz.getField("INSTANCE").get(null))
+                        "LuckPerms" -> clazz.getMethod("init").invoke(clazz.getField("INSTANCE").get(null))
+                        "AxTrade" -> clazz.getMethod("init").invoke(clazz.getField("INSTANCE").get(null))
                     }
                     plugin.logger.info("Loaded integration: $depName")
                 } catch (e: ReflectiveOperationException) {
