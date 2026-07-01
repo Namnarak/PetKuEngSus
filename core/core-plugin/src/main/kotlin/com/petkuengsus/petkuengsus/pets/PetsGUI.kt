@@ -2,6 +2,7 @@ package com.petkuengsus.petkuengsus.pets
 
 import com.petkuengsus.petkuengsus.internal.ItemStackBuilder
 import com.petkuengsus.petkuengsus.internal.PlayableSound
+import com.petkuengsus.petkuengsus.internal.SimpleItems
 import com.petkuengsus.petkuengsus.internal.SimpleMenu
 import com.petkuengsus.petkuengsus.internal.SkullBuilder
 import com.petkuengsus.petkuengsus.internal.StringUtils
@@ -128,21 +129,10 @@ object PetsGUI {
 
     private fun buildNoActivePetItem(): ItemStack {
         val raw = plugin.configYml.getString("gui.pet-info.no-active.item") ?: ""
-        if (raw.startsWith("player_head texture:")) {
-            val texture = raw.removePrefix("player_head texture:")
-            val name = StringUtils.format(plugin.configYml.getString("gui.pet-info.no-active.name") ?: "&cNo Active Pet")
-            val lore = plugin.configYml.getStringList("gui.pet-info.no-active.lore").map { StringUtils.format(it) }
-            return SkullBuilder.setSkullTexture(texture).apply {
-                val meta = itemMeta ?: return@apply
-                meta.setDisplayName(name)
-                meta.lore = lore
-                itemMeta = meta
-            }
-        }
         val name = StringUtils.format(plugin.configYml.getString("gui.pet-info.no-active.name") ?: "&cNo Active Pet")
         val lore = plugin.configYml.getStringList("gui.pet-info.no-active.lore").map { StringUtils.format(it) }
-        val mat = try { Material.valueOf(raw.uppercase()) } catch (_: Exception) { Material.PLAYER_HEAD }
-        return ItemStackBuilder(mat).setDisplayName(name).setLore(lore).build()
+        val itemStack = SimpleItems.lookup(raw) ?: ItemStack(Material.PLAYER_HEAD)
+        return ItemStackBuilder(itemStack).setDisplayName(name).setLore(lore).build()
     }
 
     private fun buildCloseButton(menu: SimpleMenu) {
@@ -165,17 +155,8 @@ object PetsGUI {
         val slot = (row - 1) * 9 + (col - 1)
         val itemName = StringUtils.format(plugin.configYml.getString("gui.deactivate-pet.name") ?: "&cDeactivate Pet")
 
-        val item = if (raw.startsWith("player_head texture:")) {
-            val texture = raw.removePrefix("player_head texture:")
-            SkullBuilder.setSkullTexture(texture).apply {
-                val meta = itemMeta ?: return@apply
-                meta.setDisplayName(itemName)
-                itemMeta = meta
-            }
-        } else {
-            val mat = try { Material.valueOf(raw.uppercase()) } catch (_: Exception) { Material.BARRIER }
-            ItemStackBuilder(mat).setDisplayName(itemName).build()
-        }
+        val itemStack = SimpleItems.lookup(raw) ?: ItemStack(Material.BARRIER)
+        val item = ItemStackBuilder(itemStack).setDisplayName(itemName).build()
 
         menu.setItem(slot, item) { p, _ ->
             p.activePet = null
@@ -198,18 +179,8 @@ object PetsGUI {
         val itemName = StringUtils.format(plugin.configYml.getString(nameKey) ?: "")
         val lore = plugin.configYml.getStringList(loreKey).map { StringUtils.format(it) }
 
-        val item = if (raw.startsWith("player_head texture:")) {
-            val texture = raw.removePrefix("player_head texture:")
-            SkullBuilder.setSkullTexture(texture).apply {
-                val meta = itemMeta ?: return@apply
-                meta.setDisplayName(itemName)
-                meta.lore = lore
-                itemMeta = meta
-            }
-        } else {
-            val mat = try { Material.valueOf(raw.uppercase()) } catch (_: Exception) { Material.PLAYER_HEAD }
-            ItemStackBuilder(mat).setDisplayName(itemName).setLore(lore).build()
-        }
+        val itemStack = SimpleItems.lookup(raw) ?: ItemStack(Material.PLAYER_HEAD)
+        val item = ItemStackBuilder(itemStack).setDisplayName(itemName).setLore(lore).build()
 
         menu.setItem(toggleSlot, item) { p, _ ->
             p.shouldHidePet = !p.shouldHidePet
@@ -231,18 +202,8 @@ object PetsGUI {
         val itemName = StringUtils.format(section?.getString("name") ?: "")
         val lore = section?.getStringList("lore")?.map { StringUtils.format(it) } ?: emptyList()
 
-        val item = if (raw.startsWith("player_head texture:")) {
-            val texture = raw.removePrefix("player_head texture:")
-            SkullBuilder.setSkullTexture(texture).apply {
-                val meta = itemMeta ?: return@apply
-                meta.setDisplayName(itemName)
-                meta.lore = lore
-                itemMeta = meta
-            }
-        } else {
-            val mat = try { Material.valueOf(raw.uppercase()) } catch (_: Exception) { Material.SADDLE }
-            ItemStackBuilder(mat).setDisplayName(itemName).setLore(lore).build()
-        }
+        val itemStack = SimpleItems.lookup(raw) ?: ItemStack(Material.SADDLE)
+        val item = ItemStackBuilder(itemStack).setDisplayName(itemName).setLore(lore).build()
 
         menu.setItem(slot, item) { p, _ ->
             if (MountManager.isMounted(p)) {
@@ -267,18 +228,8 @@ object PetsGUI {
         val itemName = StringUtils.format((cfg.getString("name") ?: "").replace("%model_type%", typeName))
         val lore = cfg.getStringList("lore").map { StringUtils.format(it.replace("%model_type%", typeName)) }
 
-        val item = if (raw.startsWith("player_head texture:")) {
-            val texture = raw.removePrefix("player_head texture:")
-            SkullBuilder.setSkullTexture(texture).apply {
-                val meta = itemMeta ?: return@apply
-                meta.setDisplayName(itemName)
-                meta.lore = lore
-                itemMeta = meta
-            }
-        } else {
-            val mat = try { Material.valueOf(raw.uppercase()) } catch (_: Exception) { Material.ITEM_FRAME }
-            ItemStackBuilder(mat).setDisplayName(itemName).setLore(lore).build()
-        }
+        val itemStack = SimpleItems.lookup(raw) ?: ItemStack(Material.ITEM_FRAME)
+        val item = ItemStackBuilder(itemStack).setDisplayName(itemName).setLore(lore).build()
 
         menu.setItem(slot, item) { p, _ ->
             val next = TransformationManager.cycleModelType(p)
@@ -307,18 +258,8 @@ object PetsGUI {
             StringUtils.format(it.replace("%transform_status%", status))
         }
 
-        val item = if (raw.startsWith("player_head texture:")) {
-            val texture = raw.removePrefix("player_head texture:")
-            SkullBuilder.setSkullTexture(texture).apply {
-                val meta = itemMeta ?: return@apply
-                meta.setDisplayName(itemName)
-                meta.lore = lore
-                itemMeta = meta
-            }
-        } else {
-            val mat = try { Material.valueOf(raw.uppercase()) } catch (_: Exception) { Material.ENDER_EYE }
-            ItemStackBuilder(mat).setDisplayName(itemName).setLore(lore).build()
-        }
+        val itemStack = SimpleItems.lookup(raw) ?: ItemStack(Material.ENDER_EYE)
+        val item = ItemStackBuilder(itemStack).setDisplayName(itemName).setLore(lore).build()
 
         menu.setItem(slot, item) { p, _ ->
             TransformationManager.toggleTransformationMode(p)
@@ -328,20 +269,14 @@ object PetsGUI {
 
     private fun simpleConfigItem(path: String, displayName: String): ItemStack {
         val raw = plugin.configYml.getString(path) ?: return ItemStack(Material.AIR)
-        if (raw.startsWith("player_head texture:")) {
-            val texture = raw.removePrefix("player_head texture:")
-            return SkullBuilder.setSkullTexture(texture).apply {
-                val meta = itemMeta ?: return@apply
-                meta.setDisplayName(displayName)
-                itemMeta = meta
-            }
-        }
-        val mat = try { Material.valueOf(raw.uppercase()) } catch (_: Exception) { return ItemStack(Material.AIR) }
-        return ItemStackBuilder(mat).setDisplayName(displayName).build()
+        val itemStack = SimpleItems.lookup(raw) ?: ItemStack(Material.AIR)
+        if (itemStack.type == Material.AIR) return itemStack
+        return ItemStackBuilder(itemStack).setDisplayName(displayName).build()
     }
 
     private fun buildSimpleItem(raw: String): ItemStack {
-        val mat = try { Material.valueOf(raw.uppercase()) } catch (_: Exception) { return ItemStack(Material.AIR) }
-        return ItemStackBuilder(mat).setDisplayName(" ").build()
+        val itemStack = SimpleItems.lookup(raw) ?: ItemStack(Material.AIR)
+        if (itemStack.type == Material.AIR) return itemStack
+        return ItemStackBuilder(itemStack).setDisplayName(" ").build()
     }
 }

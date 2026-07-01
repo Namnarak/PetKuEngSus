@@ -64,7 +64,7 @@ object PetDisplay : Listener {
                 return
             }
 
-            if (showHologram) {
+            if (showHologram && !player.isSneaking) {
                 @Suppress("DEPRECATION")
                 entity.customName = plugin.configYml.getString("pet-entity.name")
                     ?.replace("%player%", player.displayName)

@@ -20,19 +20,41 @@ object SimpleItems {
         }
     }
 
-    fun lookup(id: String): ItemStack? = getByID(id)
+    fun lookup(id: String): ItemStack? {
+        if (id.startsWith("player_head texture:")) {
+            return SkullBuilder.setSkullTexture(id.removePrefix("player_head texture:"))
+        }
+        if (id.startsWith("player_head:")) {
+            return SkullBuilder.setSkullTexture(id.removePrefix("player_head:"))
+        }
+        if (id.startsWith("item:")) {
+            val matStr = id.removePrefix("item:")
+            val mat = try { Material.valueOf(matStr.uppercase()) } catch (e: Exception) { Material.STONE }
+            return ItemStack(mat)
+        }
+        if (id.startsWith("block:")) {
+            val matStr = id.removePrefix("block:")
+            val mat = try { Material.valueOf(matStr.uppercase()) } catch (e: Exception) { Material.STONE }
+            return ItemStack(mat)
+        }
+        return getByID(id)
+    }
 
     fun builder(item: ItemStack): ItemStackBuilder = ItemStackBuilder(item)
 }
 
 class ItemStackBuilder(material: Material) {
     private val itemStack = ItemStack(material)
-    private val meta = itemStack.itemMeta ?: throw IllegalStateException("Material $material has no meta")
+    private var meta = itemStack.itemMeta ?: throw IllegalStateException("Material $material has no meta")
 
     constructor(item: ItemStack) : this(item.type) {
         itemStack.setType(item.type)
         itemStack.amount = item.amount
-        itemStack.itemMeta = item.itemMeta?.clone()
+        val clonedMeta = item.itemMeta?.clone()
+        if (clonedMeta != null) {
+            itemStack.itemMeta = clonedMeta
+            meta = clonedMeta
+        }
         itemStack.data = item.data?.clone()
     }
 

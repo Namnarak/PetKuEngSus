@@ -13,7 +13,9 @@ object StringUtils {
     }
 
     fun format(string: String, option: FormatOption = FormatOption.WITH_PLACEHOLDERS): String {
-        return ChatColor.translateAlternateColorCodes('&', string)
+        val component = MiniMessage.miniMessage().deserialize(string)
+        val legacy = LegacyComponentSerializer.legacySection().serialize(component)
+        return ChatColor.translateAlternateColorCodes('&', legacy)
     }
 
     fun toNiceString(string: String): String {
