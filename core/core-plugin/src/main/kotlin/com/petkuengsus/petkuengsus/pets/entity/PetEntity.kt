@@ -149,6 +149,7 @@ internal fun emptyArmorStandAt(location: Location, pet: Pet, isSkull: Boolean): 
         setGravity(false)
         isCollidable = false
         isPersistent = false
+        isMarker = true
 
         for (slot in EquipmentSlot.entries) {
             stand.addEquipmentLock(slot, ArmorStand.LockType.ADDING_OR_CHANGING)
