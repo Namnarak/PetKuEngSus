@@ -5,7 +5,7 @@
 *A modular Pet & RPG Framework for Minecraft.*
 
 [![Paper 1.20+](https://img.shields.io/badge/Paper-1.20%2B-blue.svg)](https://papermc.io/)
-[![Version 1.0.0](https://img.shields.io/badge/Version-1.0.0-success.svg)](#)
+[![Version 1.1.0](https://img.shields.io/badge/Version-1.1.0-success.svg)](#)
 [![Author](https://img.shields.io/badge/Author-Cytech_Team_Development-purple.svg)](#)
 
 </div>
@@ -39,7 +39,7 @@
 
 ## 🛠️ Installation
 
-1. Download the latest `PetKuEngSus-1.0.0-all.jar` release.
+1. Download the latest `PetKuEngSus-1.1.0-all.jar` release.
 2. Drop the file into your server's `plugins/` directory.
 3. Restart your server.
 4. *(Optional)* Install **PlaceholderAPI**, **Vault**, or **ModelEngine** for advanced integrations.

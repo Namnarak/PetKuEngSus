@@ -6,10 +6,10 @@ import org.bukkit.Bukkit
 class IntegrationManager(private val plugin: PetKuEngSusPlugin) {
     fun initIntegrations() {
         val integrations = mapOf(
-            "PlaceholderAPI" to "com.petkuengsus.integration.PlaceholderAPIHook",
-            "Vault" to "com.petkuengsus.integration.VaultHook",
-            "LuckPerms" to "com.petkuengsus.integration.LuckPermsHook",
-            "AxTrade" to "com.petkuengsus.integration.AxTradeHook"
+            "PlaceholderAPI" to "com.petkuengsus.petkuengsus.integration.PlaceholderAPIHook",
+            "Vault" to "com.petkuengsus.petkuengsus.integration.VaultHook",
+            "LuckPerms" to "com.petkuengsus.petkuengsus.integration.LuckPermsHook",
+            "AxTrade" to "com.petkuengsus.petkuengsus.integration.AxTradeHook"
         )
 
         for ((depName, className) in integrations) {
